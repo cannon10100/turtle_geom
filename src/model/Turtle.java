@@ -36,7 +36,9 @@ public class Turtle implements Observer {
      */
     public void forward(int moves) {
         Point oldPoint = new Point(_loc);
-        _loc.setLocation(Math.round(_loc.getX() + _vel.getKey()), Math.round(_loc.getY() + _vel.getValue()));
+        for (int i = 0; i < moves; i++) {
+            _loc.setLocation(Math.round(_loc.getX() + _vel.getKey()), Math.round(_loc.getY() + _vel.getValue()));
+        }
         Point newPoint = new Point(_loc);
 
         _lineList.add(new Pair<>(oldPoint, newPoint));
@@ -47,7 +49,9 @@ public class Turtle implements Observer {
      * @param moves the number of times to move.
      */
     public void move(int moves) {
-        _loc.setLocation(Math.round(_loc.getX() + _vel.getKey()), Math.round(_loc.getY() + _vel.getValue()));
+        for (int i = 0; i < moves; i++) {
+            _loc.setLocation(Math.round(_loc.getX() + _vel.getKey()), Math.round(_loc.getY() + _vel.getValue()));
+        }
     }
 
     /**
@@ -58,7 +62,7 @@ public class Turtle implements Observer {
         double newVelX = _vel.getKey() * Math.cos(theta) - _vel.getValue() * Math.sin(theta);
         double newVelY = _vel.getKey() * Math.sin(theta) + _vel.getValue() * Math.cos(theta);
 
-        _vel = new Pair<Double, Double>(newVelX, newVelY);
+        _vel = new Pair<>(newVelX, newVelY);
     }
 
     /**
@@ -66,7 +70,7 @@ public class Turtle implements Observer {
      * @param scale the scale to multiply the length of the current velocity vector by.
      */
     public void resize(double scale) {
-        _vel = new Pair<Double, Double>(_vel.getKey() * scale, _vel.getValue() * scale);
+        _vel = new Pair<>(_vel.getKey() * scale, _vel.getValue() * scale);
     }
 
     /**
