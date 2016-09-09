@@ -1,2 +1,8 @@
 # turtle_geom
-Implementation of basic turtle geometry principles
+Implementation of basic turtle geometry principles.
+
+# Usage
+To define a new program for the turtle to follow, create a class which implements IProgramStrategy, then modify TurtleModel.makeTurtle to load that strategy.
+
+# Installation
+To run the program, simply compile the project and then run TurtleController.
