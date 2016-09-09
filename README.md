@@ -6,3 +6,6 @@ To define a new program for the turtle to follow, create a class which implement
 
 # Installation
 To run the program, simply compile the project and then run TurtleController.
+
+# Further Reading
+See [https://en.wikipedia.org/wiki/Turtle_graphics](https://en.wikipedia.org/wiki/Turtle_graphics).
