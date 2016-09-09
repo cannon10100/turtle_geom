@@ -11,5 +11,10 @@ public interface IModelAdapter {
      * Method to cause the model to paint itself.
      * @param g Graphics object to paint on.
      */
-    void paint(Graphics g);
+    public void paint(Graphics g);
+
+    /**
+     * Method to cause the model to make a new Turtle.
+     */
+    public void makeTurtle();
 }

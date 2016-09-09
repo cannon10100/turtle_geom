@@ -49,7 +49,6 @@ public class TurtleGUI extends JFrame {
         _contentPane = new JPanel();
         _contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         _contentPane.setLayout(new BorderLayout(0, 0));
-        _contentPane.setBackground(new Color(102, 40, 115));
 
         setContentPane(_contentPane);
 
@@ -57,11 +56,16 @@ public class TurtleGUI extends JFrame {
         _contentPane.add(_pnlCenter, BorderLayout.CENTER);
     }
 
+    public void update() {
+        _pnlCenter.repaint();
+    }
+
     /**
      * Start the GUI.
      */
     public void start() {
         setVisible(true);
+        _modelAdpt.makeTurtle();
     }
 
     /**

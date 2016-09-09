@@ -1,6 +1,8 @@
 package controller;
 
+import model.IViewAdapter;
 import model.TurtleModel;
+import view.IModelAdapter;
 import view.TurtleGUI;
 
 import java.awt.*;
@@ -29,6 +31,29 @@ public class TurtleController {
     private void start() {
         _model.start();
         _view.start();
+    }
+
+    public TurtleController() {
+        _model = new TurtleModel(new IViewAdapter() {
+
+            @Override
+            public void update() {
+                _view.update();
+            }
+        });
+
+        _view = new TurtleGUI(new IModelAdapter() {
+
+            @Override
+            public void paint(Graphics g) {
+                _model.paint(g);
+            }
+
+            @Override
+            public void makeTurtle() {
+                _model.makeTurtle();
+            }
+        });
     }
 
     /**

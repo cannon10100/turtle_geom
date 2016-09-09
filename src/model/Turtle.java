@@ -1,6 +1,8 @@
 package model;
 
 import javafx.util.Pair;
+import strategy.BasicStrategy;
+import strategy.IProgramStrategy;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -92,10 +94,19 @@ public class Turtle implements Observer {
     }
 
     /**
-     * Constructor which initializes an ArrayList for lines to be displayed.
+     * Method causing the turtle to execute the given strategy.
+     * @param strategy the strategy to execute.
      */
-    public Turtle() {
-        this._lineList = new ArrayList<>();
+    public void doStrategy(IProgramStrategy strategy) {
+        strategy.execute(this);
     }
 
+    /**
+     * Constructor which initializes an ArrayList for lines to be displayed.
+     */
+    public Turtle(Point loc, double norm) {
+        this._lineList = new ArrayList<>();
+        this._loc = loc;
+        this._vel = new Pair<>(0.0, norm);
+    }
 }
