@@ -11,10 +11,19 @@ import view.TurtleGUI;
  */
 public class TurtleController {
 
+    /**
+     * The model representing the state of this application.
+     */
     private TurtleModel _model;
 
+    /**
+     * The Swing view for the application.
+     */
     private TurtleGUI _view;
 
+    /**
+     * Method to start the application.
+     */
     public void start() {
         _model.start();
         _view.start();

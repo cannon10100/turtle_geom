@@ -9,10 +9,16 @@ import javax.swing.*;
  */
 public class TurtleGUI extends JFrame {
 
+    /**
+     * Initialize the GUI components.
+     */
     public void initGUI() {
 
     }
 
+    /**
+     * Start the GUI.
+     */
     public void start() {
         initGUI();
     }

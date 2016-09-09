@@ -7,6 +7,9 @@ package model;
  */
 public class TurtleModel {
 
+    /**
+     * Start the model.
+     */
     public void start() {
 
     }
