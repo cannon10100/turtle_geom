@@ -3,6 +3,8 @@ package controller;
 import model.TurtleModel;
 import view.TurtleGUI;
 
+import java.awt.*;
+
 /**
  * Created by cannon on 9/8/16.
  *
@@ -24,7 +26,7 @@ public class TurtleController {
     /**
      * Method to start the application.
      */
-    public void start() {
+    private void start() {
         _model.start();
         _view.start();
     }
@@ -33,6 +35,15 @@ public class TurtleController {
      * Launch the application.
      */
     public static void main(String[] args) {
-
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    TurtleController controller = new TurtleController();
+                    controller.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
