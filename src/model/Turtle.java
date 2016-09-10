@@ -1,7 +1,6 @@
 package model;
 
 import javafx.util.Pair;
-import strategy.BasicStrategy;
 import strategy.IProgramStrategy;
 
 import java.awt.*;
@@ -19,7 +18,7 @@ public class Turtle implements Observer {
     /**
      * The location of the Turtle in 2D.
      */
-    private Point _loc;
+    private Pair<Double, Double> _loc;
 
     /**
      * The heading/velocity of the Turtle.
@@ -31,17 +30,25 @@ public class Turtle implements Observer {
      */
     private ArrayList<Pair<Point, Point>> _lineList;
 
+    /**
+     * Method to get the norm of the current heading.
+     * @return the norm of the current heading.
+     */
+    public double getVelNorm() {
+        return Math.sqrt(Math.pow(_vel.getKey(), 2) + Math.pow(_vel.getValue(), 2));
+    }
+
 
     /**
      * Moves the Turtle forward "moves" times in the heading direction, drawing a straight line.
      * @param moves the number of times to move.
      */
     public void forward(int moves) {
-        Point oldPoint = new Point(_loc);
+        Point oldPoint = new Point((int)Math.round(_loc.getKey()), (int)Math.round(_loc.getValue()));
         for (int i = 0; i < moves; i++) {
-            _loc.setLocation(Math.round(_loc.getX() + _vel.getKey()), Math.round(_loc.getY() + _vel.getValue()));
+            _loc = new Pair<>(_loc.getKey() + _vel.getKey(), _loc.getValue() + _vel.getValue());
         }
-        Point newPoint = new Point(_loc);
+        Point newPoint = new Point((int)Math.round(_loc.getKey()), (int)Math.round(_loc.getValue()));;
 
         _lineList.add(new Pair<>(oldPoint, newPoint));
     }
@@ -52,7 +59,7 @@ public class Turtle implements Observer {
      */
     public void move(int moves) {
         for (int i = 0; i < moves; i++) {
-            _loc.setLocation(Math.round(_loc.getX() + _vel.getKey()), Math.round(_loc.getY() + _vel.getValue()));
+            _loc = new Pair<>(_loc.getKey() + _vel.getKey(), _loc.getValue() + _vel.getValue());
         }
     }
 
@@ -104,7 +111,7 @@ public class Turtle implements Observer {
     /**
      * Constructor which initializes an ArrayList for lines to be displayed.
      */
-    public Turtle(Point loc, double norm) {
+    public Turtle(Pair<Double, Double> loc, double norm) {
         this._lineList = new ArrayList<>();
         this._loc = loc;
         this._vel = new Pair<>(0.0, norm);

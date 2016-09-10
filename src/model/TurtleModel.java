@@ -1,7 +1,7 @@
 package model;
 
-import strategy.BasicStrategy;
-import strategy.RegularShapeStrategy;
+import javafx.util.Pair;
+import strategy.*;
 import util.Dispatcher;
 
 import javax.swing.*;
@@ -62,10 +62,8 @@ public class TurtleModel {
      * Method to load a turtle with a default ProgramStrategy.
      */
     public void makeTurtle() {
-        Turtle turtle = new Turtle(new Point(300, 200), 20.0);
+        Turtle turtle = new Turtle(new Pair<Double,Double>(300.0, 200.0), 200.0);
         _dispatcher.addObserver(turtle);
-        for (int i = 3; i < 40; i++) {
-            turtle.doStrategy(new RegularShapeStrategy(i));
-        }
+        turtle.doStrategy(new PolyGasketStrategy(3, 5));
     }
 }
