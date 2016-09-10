@@ -10,4 +10,4 @@ To run the program, simply compile the project and then run TurtleController.
 # Further Reading
 See [https://en.wikipedia.org/wiki/Turtle_graphics](https://en.wikipedia.org/wiki/Turtle_graphics).
 
-![alt text](http://imgur.com/n27FyAJ "The Koch Pentagon")
+[The Koch Pentagon](http://i.imgur.com/n27FyAJ.png)
