@@ -3,7 +3,7 @@ package strategy;
 import model.Turtle;
 
 /**
- * Strategy which executes an inner strategy and shifts its location.
+ * Strategy which draws the Sierpinksi Triangle.
  */
 public class SierpinskiStrategy implements IProgramStrategy {
 

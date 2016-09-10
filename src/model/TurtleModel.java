@@ -62,8 +62,8 @@ public class TurtleModel {
      * Method to load a turtle with a default ProgramStrategy.
      */
     public void makeTurtle() {
-        Turtle turtle = new Turtle(new Pair<Double,Double>(300.0, 200.0), 200.0);
+        Turtle turtle = new Turtle(new Pair<Double,Double>(500.0, 200.0), 200.0);
         _dispatcher.addObserver(turtle);
-        turtle.doStrategy(new PolyGasketStrategy(3, 5));
+        turtle.doStrategy(new SpinStrategy(Math.PI / 2.5, 5, new KochCurveStrategy(6)));
     }
 }
